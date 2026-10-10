@@ -60,7 +60,7 @@ export function Login() {
   // Official Google OAuth 2.0 Account Picker for any user
   const handleGoogleClick = () => {
     setFormError('');
-    const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID || '111081114818-l11k8gfcs9stdgutirbnji187rpq6rlq.apps.googleusercontent.com';
+    const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID || '111081114818-dtmetq8559f7hb6rgu00n5fh098e0trn.apps.googleusercontent.com';
 
     if (!googleClientId) {
       setFormError('Google OAuth is being configured by the system administrator. In the meantime, please sign in or register with email below.');
