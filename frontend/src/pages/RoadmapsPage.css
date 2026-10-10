@@ -1,0 +1,130 @@
+/* Roadmaps Page Styles */
+.roadmaps-page-container {
+  padding: 1.5rem 2rem 3rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.roadmaps-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.roadmaps-header-info h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 0.5rem 0 0.5rem;
+}
+
+.roadmaps-header-info p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  max-width: 720px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.roadmaps-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 9999px;
+  background: rgba(245, 158, 11, 0.12);
+  color: var(--study-amber-bright);
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.roadmaps-header-links {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.roadmap-action-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.15rem;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.practice-link {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #0b0f17;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.25);
+}
+
+.practice-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(245, 158, 11, 0.35);
+}
+
+.courses-link {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+}
+
+.courses-link:hover {
+  border-color: var(--study-amber);
+  color: var(--study-amber-bright);
+}
+
+/* Track Selector Bar */
+.track-selector-bar {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.75rem;
+  overflow-x: auto;
+}
+
+.track-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: 8px;
+  background: var(--card-bg);
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.track-btn:hover {
+  color: var(--text-color);
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+.track-btn.active {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--study-amber-bright);
+  border-color: var(--study-amber);
+  font-weight: 600;
+}
+
+.roadmap-flowchart-section {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2rem;
+  min-height: 500px;
+}

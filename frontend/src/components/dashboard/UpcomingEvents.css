@@ -1,0 +1,145 @@
+.upcoming-events-card {
+  background: var(--card-bg, #1e293b);
+  border: 1px solid var(--border-color, #334155);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+}
+
+.upcoming-events-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.upcoming-icon {
+  color: #6366f1;
+}
+
+.view-calendar-link {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: #818cf8;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.view-calendar-link:hover {
+  text-decoration: underline;
+}
+
+.upcoming-empty {
+  padding: 24px;
+  text-align: center;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.upcoming-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.upcoming-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  background: var(--input-bg, #0f172a);
+  border: 1px solid var(--border-color, #334155);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.upcoming-item:hover {
+  background: var(--card-hover, #243048);
+}
+
+.upcoming-date-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  padding: 4px 6px;
+  background: rgba(99, 102, 241, 0.15);
+  border-radius: 6px;
+}
+
+.badge-day {
+  font-size: 14px;
+  font-weight: 700;
+  color: #818cf8;
+  line-height: 1;
+}
+
+.badge-month {
+  font-size: 10px;
+  color: #a5b4fc;
+  text-transform: uppercase;
+}
+
+.upcoming-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow: hidden;
+}
+
+.upcoming-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-color, #f8fafc);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.upcoming-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.priority-pill {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+.pill-high {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+}
+
+.pill-medium {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+}
+
+.pill-low {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+}
+
+.duration-pill {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 11px;
+  color: #64748b;
+}

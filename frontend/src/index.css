@@ -1,0 +1,138 @@
+:root {
+  /* Roadmap.sh & Modern Developer Aesthetic - Electric Royal Blue & Midnight Slate */
+  --primary: #3b82f6;               /* Electric Royal Blue */
+  --primary-hover: #2563eb;         /* Deeper Cobalt Blue */
+  --primary-light: rgba(59, 130, 246, 0.15);
+  --primary-glow: rgba(59, 130, 246, 0.35);
+
+  --study-amber: #3b82f6;           /* Blue Primary Theme */
+  --study-amber-bright: #60a5fa;    /* Bright Sky Blue */
+  --study-amber-glow: rgba(59, 130, 246, 0.25);
+
+  --study-blue: #3b82f6;
+  --study-blue-bright: #60a5fa;
+  --study-blue-glow: rgba(59, 130, 246, 0.25);
+  --accent-cyan: #06b6d4;
+
+  --focus-emerald: #10b981;         /* Emerald Success */
+  --focus-emerald-hover: #059669;
+  --focus-emerald-light: rgba(16, 185, 129, 0.15);
+
+  --ink-blue: #38bdf8;              /* Neon Sky Blue */
+  --ink-purple: #818cf8;            /* Indigo / Violet */
+
+  --bg-color: #080e1a;              /* Deep Midnight Blue */
+  --card-bg: #0f172a;               /* Slate Navy Tech Card */
+  --card-hover: #172540;
+  --input-bg: #0b1325;              /* Dark Tech Input */
+  --border-color: #1e293b;          /* Clean Slate Border */
+  --border-focus: #3b82f6;
+  
+  --text-color: #f8fafc;            /* Crisp Bright White */
+  --text-muted: #94a3b8;            /* Slate Gray */
+  --sidebar-bg: #0b1325;
+  --nav-bg: rgba(8, 14, 26, 0.92);
+}
+
+[data-theme='light'] {
+  /* Roadmap.sh Light Mode - Crisp Developer Studio Blue */
+  --primary: #2563eb;               /* Royal Blue */
+  --primary-hover: #1d4ed8;
+  --primary-light: rgba(37, 99, 235, 0.12);
+  --primary-glow: rgba(37, 99, 235, 0.2);
+
+  --study-amber: #2563eb;
+  --study-amber-bright: #3b82f6;
+  --study-amber-glow: rgba(37, 99, 235, 0.18);
+
+  --study-blue: #2563eb;
+  --study-blue-bright: #3b82f6;
+  --study-blue-glow: rgba(37, 99, 235, 0.18);
+  --accent-cyan: #0284c7;
+
+  --focus-emerald: #059669;
+  --focus-emerald-hover: #047857;
+  --focus-emerald-light: rgba(5, 150, 105, 0.12);
+
+  --ink-blue: #0284c7;
+  --ink-purple: #6366f1;
+
+  --bg-color: #f8fafc;              /* Crisp Porcelain White */
+  --card-bg: #ffffff;               /* Clean White Card */
+  --card-hover: #f1f5f9;
+  --input-bg: #ffffff;
+  --border-color: #e2e8f0;          /* Subtle Slate Border */
+  --border-focus: #2563eb;
+
+  --text-color: #0f172a;            /* Slate Dark */
+  --text-muted: #64748b;            /* Muted Slate */
+  --sidebar-bg: #f8fafc;
+  --nav-bg: rgba(248, 250, 252, 0.92);
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  min-height: 100vh;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  background-image: radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.05) 0%, transparent 60%);
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Study World Accent Utilities */
+.study-glow {
+  box-shadow: 0 0 25px var(--study-amber-glow);
+}
+
+.study-streak-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 14px;
+  background: var(--primary-light);
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 700;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.focus-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 14px;
+  background: var(--focus-emerald-light);
+  color: var(--focus-emerald);
+  font-size: 12px;
+  font-weight: 700;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}

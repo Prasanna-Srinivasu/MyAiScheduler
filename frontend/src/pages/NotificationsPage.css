@@ -1,0 +1,47 @@
+.notifications-page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  text-align: left;
+  max-width: 860px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.notif-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.notif-filter-toggle {
+  display: flex;
+  background: var(--input-bg, #0f172a);
+  border: 1px solid var(--border-color, #334155);
+  border-radius: 8px;
+  padding: 4px;
+}
+
+.filter-btn {
+  padding: 6px 14px;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  color: var(--text-muted, #94a3b8);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-btn.active {
+  background: #6366f1;
+  color: #ffffff;
+}
+
+.notif-page-content {
+  display: flex;
+  flex-direction: column;
+}

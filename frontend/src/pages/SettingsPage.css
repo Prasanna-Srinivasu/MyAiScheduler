@@ -1,0 +1,100 @@
+.settings-page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.settings-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.settings-section-card {
+  background: var(--card-bg, #1e293b);
+  border: 1px solid var(--border-color, #334155);
+  border-radius: 14px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.section-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-color, #f8fafc);
+}
+
+.section-desc {
+  margin: -8px 0 4px;
+  font-size: 13px;
+  color: var(--text-muted, #94a3b8);
+}
+
+.settings-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.checkbox-toggle-row {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.custom-checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: #6366f1;
+  cursor: pointer;
+}
+
+.checkbox-text {
+  font-size: 14px;
+  color: var(--text-color, #f8fafc);
+}
+
+.theme-toggle-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.theme-status-text {
+  font-size: 14px;
+  color: var(--text-muted, #94a3b8);
+}
+
+.theme-status-text strong {
+  color: var(--text-color, #f8fafc);
+}
+
+.settings-submit-strip {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (max-width: 640px) {
+  .settings-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
