@@ -139,12 +139,19 @@ public class CourseService {
         return courseRepository.save(course);
     }
 
-    public Topic addTopic(Long courseId, String title, String description, String difficulty, Integer hours, String conceptsJson, String challengeProject) {
+    public Topic addTopic(Long courseId, String title, String description, String difficulty, Integer hours, String conceptsJson, String challengeProject, Long userId) {
         if (title == null || title.isBlank()) {
             throw new RuntimeException("Topic title is required");
         }
         Course course = courseRepository.findById(courseId)
                 .orElseThrow(() -> new RuntimeException("Course not found: " + courseId));
+
+        if (Boolean.TRUE.equals(course.getIsPredefined())) {
+            throw new RuntimeException("Cannot modify predefined system courses");
+        }
+        if (course.getCreatedByUserId() != null && !course.getCreatedByUserId().equals(userId)) {
+            throw new RuntimeException("Unauthorized to modify this course");
+        }
 
         List<Topic> existing = topicRepository.findByCourseIdOrderByOrderIndexAsc(courseId);
         int nextOrder = existing.size() + 1;
@@ -162,12 +169,22 @@ public class CourseService {
         return topicRepository.save(topic);
     }
 
-    public Subtopic addSubtopic(Long topicId, String title, String description) {
+    public Subtopic addSubtopic(Long topicId, String title, String description, Long userId) {
         if (title == null || title.isBlank()) {
             throw new RuntimeException("Subtopic title is required");
         }
         Topic topic = topicRepository.findById(topicId)
                 .orElseThrow(() -> new RuntimeException("Topic not found: " + topicId));
+
+        Course course = courseRepository.findById(topic.getCourseId())
+                .orElseThrow(() -> new RuntimeException("Associated course not found"));
+
+        if (Boolean.TRUE.equals(course.getIsPredefined())) {
+            throw new RuntimeException("Cannot modify predefined system courses");
+        }
+        if (course.getCreatedByUserId() != null && !course.getCreatedByUserId().equals(userId)) {
+            throw new RuntimeException("Unauthorized to modify this course");
+        }
 
         List<Subtopic> existing = subtopicRepository.findByTopicIdOrderByOrderIndexAsc(topicId);
         int nextOrder = existing.size() + 1;

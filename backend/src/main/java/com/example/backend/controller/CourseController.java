@@ -94,7 +94,9 @@ public class CourseController {
     @PostMapping("/{courseId}/topics")
     public ResponseEntity<Topic> addTopic(
             @PathVariable Long courseId,
-            @RequestBody Map<String, Object> body) {
+            @RequestBody Map<String, Object> body,
+            Authentication auth) {
+        Long userId = getUserId(auth);
         String title = (String) body.get("title");
         String description = (String) body.getOrDefault("description", "");
         String difficulty = (String) body.getOrDefault("difficulty", "Medium");
@@ -102,18 +104,20 @@ public class CourseController {
         String conceptsJson = (String) body.getOrDefault("conceptsJson", "[]");
         String challenge = (String) body.getOrDefault("challengeProject", "");
 
-        Topic topic = courseService.addTopic(courseId, title, description, difficulty, hours, conceptsJson, challenge);
+        Topic topic = courseService.addTopic(courseId, title, description, difficulty, hours, conceptsJson, challenge, userId);
         return ResponseEntity.ok(topic);
     }
 
     @PostMapping("/topics/{topicId}/subtopics")
     public ResponseEntity<Subtopic> addSubtopic(
             @PathVariable Long topicId,
-            @RequestBody Map<String, String> body) {
+            @RequestBody Map<String, String> body,
+            Authentication auth) {
+        Long userId = getUserId(auth);
         String title = body.get("title");
         String description = body.getOrDefault("description", "");
 
-        Subtopic subtopic = courseService.addSubtopic(topicId, title, description);
+        Subtopic subtopic = courseService.addSubtopic(topicId, title, description, userId);
         return ResponseEntity.ok(subtopic);
     }
 

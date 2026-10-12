@@ -44,24 +44,4 @@ public class UsersController {
         Users user = usersService.getUserByEmail(auth.getName());
         return ResponseEntity.ok(usersService.getPreferences(user));
     }
-
-    @GetMapping
-    public List<Users> getAllusers() {
-        return usersService.getAllusers();
-    }
-
-    @GetMapping("/{id}")
-    public Users getUserById(@PathVariable Long id) {
-        return usersService.getUserById(id);
-    }
-
-    @PostMapping
-    public Users createUsers(@RequestBody Users user) {
-        return usersService.createUser(user);
-    }
-
-    @DeleteMapping("/{id}")
-    public String deleteUser(@PathVariable Long id) {
-        return usersService.deleteUser(id);
-    }
 }
