@@ -92,7 +92,7 @@ public class AuthService {
                 .secure(cookieSecure)
                 .path("/")
                 .maxAge(7 * 24 * 60 * 60) // 7 days
-                .sameSite("Lax")
+                .sameSite(cookieSecure ? "None" : "Lax")
                 .build();
     }
 
@@ -102,7 +102,7 @@ public class AuthService {
                 .secure(cookieSecure)
                 .path("/")
                 .maxAge(0)
-                .sameSite("Lax")
+                .sameSite(cookieSecure ? "None" : "Lax")
                 .build();
     }
 

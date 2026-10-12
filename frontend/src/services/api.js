@@ -9,6 +9,18 @@ const api = axios.create({
   },
 });
 
+// Attach Authorization header if token exists in localStorage (dual-layer security)
+api.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
+
 // Interceptor to handle unauthorized / session expiry gracefully
 api.interceptors.response.use(
   (response) => response,
@@ -26,6 +38,7 @@ api.interceptors.response.use(
         !window.location.pathname.includes('/roadmaps')
       ) {
         localStorage.removeItem('user');
+        localStorage.removeItem('token');
         window.location.href = '/login';
       }
     }

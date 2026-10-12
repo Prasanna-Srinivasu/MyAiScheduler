@@ -37,6 +37,9 @@ export function OAuthCallback({ provider = 'GITHUB' }) {
           });
 
           if (response && response.user) {
+            if (response.token) {
+              localStorage.setItem('token', response.token);
+            }
             updateUser(response.user);
             // Redirect authenticated users directly to LeetCode practice playground
             navigate('/practice', { replace: true });
@@ -74,6 +77,9 @@ export function OAuthCallback({ provider = 'GITHUB' }) {
           });
 
           if (response && response.user) {
+            if (response.token) {
+              localStorage.setItem('token', response.token);
+            }
             updateUser(response.user);
             navigate('/practice', { replace: true });
           } else {

@@ -18,12 +18,9 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Enforce security policy: purge any legacy sensitive tokens from localStorage
-    localStorage.removeItem('token');
-
     const initAuth = async () => {
       try {
-        // Priority: Restore session securely from HTTP-only session cookie
+        // Priority: Restore session securely from HTTP-only session cookie or Bearer header
         const sessionData = await authService.getSession();
         const currentUser = sessionData?.user || (sessionData?.email ? sessionData : null);
 
@@ -35,12 +32,14 @@ export function AuthProvider({ children }) {
           setUser(null);
           setIsAuthenticated(false);
           localStorage.removeItem('user');
+          localStorage.removeItem('token');
         }
       } catch {
-        // Cookie session absent or expired
+        // Cookie or token absent or expired
         setUser(null);
         setIsAuthenticated(false);
         localStorage.removeItem('user');
+        localStorage.removeItem('token');
       } finally {
         setLoading(false);
       }
@@ -52,6 +51,9 @@ export function AuthProvider({ children }) {
   const login = async (credentials) => {
     const response = await authService.login(credentials);
     const receivedUser = response.user;
+    if (response.token) {
+      localStorage.setItem('token', response.token);
+    }
     setUser(receivedUser);
     setIsAuthenticated(true);
     localStorage.setItem('user', JSON.stringify(receivedUser));
@@ -61,6 +63,9 @@ export function AuthProvider({ children }) {
   const googleLogin = async (googleData) => {
     const response = await authService.googleLogin(googleData);
     const receivedUser = response.user;
+    if (response.token) {
+      localStorage.setItem('token', response.token);
+    }
     setUser(receivedUser);
     setIsAuthenticated(true);
     localStorage.setItem('user', JSON.stringify(receivedUser));
@@ -70,6 +75,9 @@ export function AuthProvider({ children }) {
   const githubLogin = async (githubData) => {
     const response = await authService.githubOAuth(githubData);
     const receivedUser = response.user;
+    if (response.token) {
+      localStorage.setItem('token', response.token);
+    }
     setUser(receivedUser);
     setIsAuthenticated(true);
     localStorage.setItem('user', JSON.stringify(receivedUser));
@@ -79,6 +87,9 @@ export function AuthProvider({ children }) {
   const register = async (data) => {
     const response = await authService.register(data);
     const receivedUser = response.user;
+    if (response.token) {
+      localStorage.setItem('token', response.token);
+    }
     if (receivedUser) {
       setUser(receivedUser);
       setIsAuthenticated(true);
